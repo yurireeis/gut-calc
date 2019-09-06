@@ -1,6 +1,6 @@
 const dictionary = {
     'pt': {
-        'result': 'Resultado final',
+        'final-score': 'Resultado final',
         'subject': [
             'Gravidade',
             'Urgência',
@@ -28,9 +28,9 @@ const dictionary = {
             'Irá piorar rapidamente se nada for feito'
         ]
     },
-    'result': 'Final Result',
     'en': {
-        'subject:': [
+        'final-score': 'Final Result',
+        'subject': [
             'Gravity',
             'Urgency',
             'Tendency'
@@ -61,9 +61,9 @@ const dictionary = {
 
 const setLanguage = (language) => {
     const finalScoreLabel = document.getElementById('final-score-label')
-    finalScoreLabel.textContent = dictionary[language]['result']
-    const subjectElements = document.getElementsByClassName('subject')
+    finalScoreLabel.textContent = dictionary[language]['final-score']
 
+    const subjectElements = document.getElementsByClassName('subject')
     subjectElements[0].textContent = dictionary[language]['subject'][0]
     subjectElements[1].textContent = dictionary[language]['subject'][1]
     subjectElements[2].textContent = dictionary[language]['subject'][2]

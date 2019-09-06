@@ -5,59 +5,266 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>GUT Calculator</title>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-grid.css">
         <style>
             html, body { width: 100%; }
-            { text-transform: uppercase; }
+            .text-uppercase { text-transform: uppercase; }
+            .text-center { text-align: center }
             .selected { border: 1px solid red; }
         </style>
     </head>
-    <body onload="setLanguage('pt');firstCalc();">
-        <table style="width: 100%">
-            <tr>
-                <th>
-                    <span class="subject"></span>
-                </th>
-                <th>
-                    <span class="subject"></span>
-                </th>
-                <th>
-                    <span class="subject"></span>
-                </th>
-            </tr>
-            <tr>
-                <td>5 <span class="description-4"></span></td>
-                <td>5 <span class="description-4"></span></td>
-                <td>5 <span class="description-4"></span></td>
-            </tr>
-            <tr>
-                <td>4 <span class="description-3"></span></td>
-                <td>4 <span class="description-3"></span></td>
-                <td>4 <span class="description-3"></span></td>
-            </tr>
-            <tr>
-                <td>3<span class="description-2"></span></td>
-                <td>3<span class="description-2"></span></td>
-                <td>3<span class="description-2"></span></td>
-            </tr>
-            <tr>
-                <td>2<span class="description-1"></span></td>
-                <td>2<span class="description-1"></span></td>
-                <td>2<span class="description-1"></span></td>
-            </tr>
-            <tr>
-                <td>1<span class="description-0"></span></td>
-                <td>1<span class="description-0"></span></td>
-                <td>1<span class="description-0"></span></td>
-            </tr>
-            <tr>
-                <td>
-                    <label id="final-score-label"></label>
-                </td>
-                <td>
-                    <span id="score"></span>
-                </td>
-            </tr>
-        </table>
+    <body onload="setLanguage('pt');calc()">
+
+        <div class="row align-items-center" style="height: 60px">
+            <div class="col-4">
+                <div class="row justify-content-center">
+                    <div style="font-size: 18px; font-weight: 800">G</div>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-12 text-center">
+                        <span class="subject"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center">
+                    <div style="font-size: 18px; font-weight: 800">U</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span class="subject"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center">
+                    <div style="font-size: 18px; font-weight: 800">T</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span class="subject"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center" style="height: 60px">
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">5</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">5</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">5</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center" style="height: 60px">
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">4</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">4</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">4</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center" style="height: 60px">
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">3</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">3</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">3</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center" style="height: 60px">
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">2</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">2</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">2</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center" style="height: 60px">
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">1</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">1</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-3" style="display: flex; justify-content: center">
+                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="color: white; font-weight: 800; font-size: 14px">1</div>
+                        </div>
+                    </div>
+                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
+                        <div class="description-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center justify-content-center" style="height: 60px">
+            <div class="col-4">
+                <span id="final-score-label"></span>
+                <span id="score"></span> 
+            </div>
+        </div>
+
         <script src="calc.js"></script>
         <script src="lang.js"></script>
     </body>

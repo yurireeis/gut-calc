@@ -3,7 +3,7 @@ let urgency = 1
 let tendency = 1
 let score = 0
 
-const calc = () => {
+const calcTotal = () => {
     score = gravity * urgency * tendency
 }
 
@@ -12,7 +12,7 @@ const updateScore = () => {
     scoreElement.textContent = score
 }
 
-const firstCalc = () => {
-    calc()
+const calc = () => {
+    calcTotal()
     updateScore()
 }
