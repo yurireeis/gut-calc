@@ -1,50 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GUT Calculator</title>
-    <style>
-        html, body { width: 100%; }
-    </style>
-    <script src="calc.js"></script>
-</head>
-<body onload="firstCalc()">
-    <table style="width: 100%">
-        <tr>
-            <th>Gravity</th>
-            <th>Tendency</th>
-            <th>Urgency</th>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>5</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>4</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>3</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>Total Score: <score></score></td>
-        </tr>
-    </table>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>GUT Calculator</title>
+        <style>
+            html, body { width: 100%; }
+            { text-transform: uppercase; }
+            .selected { border: 1px solid red; }
+        </style>
+    </head>
+    <body onload="setLanguage('pt');firstCalc();">
+        <table style="width: 100%">
+            <tr>
+                <th>
+                    <span class="subject"></span>
+                </th>
+                <th>
+                    <span class="subject"></span>
+                </th>
+                <th>
+                    <span class="subject"></span>
+                </th>
+            </tr>
+            <tr>
+                <td>5 <span class="description-4"></span></td>
+                <td>5 <span class="description-4"></span></td>
+                <td>5 <span class="description-4"></span></td>
+            </tr>
+            <tr>
+                <td>4 <span class="description-3"></span></td>
+                <td>4 <span class="description-3"></span></td>
+                <td>4 <span class="description-3"></span></td>
+            </tr>
+            <tr>
+                <td>3<span class="description-2"></span></td>
+                <td>3<span class="description-2"></span></td>
+                <td>3<span class="description-2"></span></td>
+            </tr>
+            <tr>
+                <td>2<span class="description-1"></span></td>
+                <td>2<span class="description-1"></span></td>
+                <td>2<span class="description-1"></span></td>
+            </tr>
+            <tr>
+                <td>1<span class="description-0"></span></td>
+                <td>1<span class="description-0"></span></td>
+                <td>1<span class="description-0"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="final-score-label"></label>
+                </td>
+                <td>
+                    <span id="score"></span>
+                </td>
+            </tr>
+        </table>
+        <script src="calc.js"></script>
+        <script src="lang.js"></script>
+    </body>
 </html>

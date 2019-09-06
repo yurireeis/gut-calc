@@ -1,0 +1,5 @@
+html, body { width: 100%; }
+
+.text-uppercase { text-transform: uppercase; }
+
+.selected { border: 1px solid red; }

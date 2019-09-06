@@ -8,8 +8,8 @@ const calc = () => {
 }
 
 const updateScore = () => {
-    const scoreElement = document.getElementsByTagName('score')
-    scoreElement[0].textContent = score
+    const scoreElement = document.getElementById('score')
+    scoreElement.textContent = score
 }
 
 const firstCalc = () => {
