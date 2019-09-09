@@ -9,18 +9,30 @@
         <style>
             html, body { width: 100%; }
             .text-uppercase { text-transform: uppercase; }
-            .text-center { text-align: center }
-            .selected { border: 1px solid red; }
+            .text-center { text-align: center; }
+            .selected { outline: 1px solid red; }
+            .options { padding: 5px; margin: 0 5px; }
+            .badge {
+                width: 30px;
+                height: 30px;
+                background-color: red;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .subject { text-transform: uppercase; }
+            .result { height: 60px; }
         </style>
     </head>
-    <body onload="setLanguage('pt');calc()">
+    <body onload="setLanguage('pt');">
 
         <div class="row align-items-center" style="height: 60px">
             <div class="col-4">
                 <div class="row justify-content-center">
-                    <div style="font-size: 18px; font-weight: 800">G</div>
+                    <div style="font-size: 18px; font-weight: 800;">G</div>
                 </div>
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <span class="subject"></span>
                     </div>
@@ -28,7 +40,7 @@
             </div>
             <div class="col-4">
                 <div class="row justify-content-center">
-                    <div style="font-size: 18px; font-weight: 800">U</div>
+                    <div style="font-size: 18px; font-weight: 800;">U</div>
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
@@ -38,7 +50,7 @@
             </div>
             <div class="col-4">
                 <div class="row justify-content-center">
-                    <div style="font-size: 18px; font-weight: 800">T</div>
+                    <div style="font-size: 18px; font-weight: 800;">T</div>
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
@@ -50,9 +62,9 @@
 
         <div class="row align-items-center" style="height: 60px">
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">5</div>
                         </div>
                     </div>
@@ -63,9 +75,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">5</div>
                         </div>
                     </div>
@@ -76,9 +88,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">5</div>
                         </div>
                     </div>
@@ -92,9 +104,9 @@
 
         <div class="row align-items-center" style="height: 60px">
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">4</div>
                         </div>
                     </div>
@@ -105,9 +117,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">4</div>
                         </div>
                     </div>
@@ -118,9 +130,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">4</div>
                         </div>
                     </div>
@@ -134,9 +146,9 @@
 
         <div class="row align-items-center" style="height: 60px">
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">3</div>
                         </div>
                     </div>
@@ -147,9 +159,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">3</div>
                         </div>
                     </div>
@@ -160,9 +172,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">3</div>
                         </div>
                     </div>
@@ -176,9 +188,9 @@
 
         <div class="row align-items-center" style="height: 60px">
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">2</div>
                         </div>
                     </div>
@@ -189,9 +201,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">2</div>
                         </div>
                     </div>
@@ -202,9 +214,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">2</div>
                         </div>
                     </div>
@@ -218,9 +230,9 @@
 
         <div class="row align-items-center" style="height: 60px">
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">1</div>
                         </div>
                     </div>
@@ -231,9 +243,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">1</div>
                         </div>
                     </div>
@@ -244,9 +256,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
                     <div class="col-3" style="display: flex; justify-content: center">
-                        <div style="width: 30px; height: 30px; background-color: red; border-radius: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div class="badge">
                             <div style="color: white; font-weight: 800; font-size: 14px">1</div>
                         </div>
                     </div>
@@ -258,14 +270,14 @@
             </div>
         </div>
 
-        <div class="row align-items-center justify-content-center" style="height: 60px">
+        <div class="row align-items-center justify-content-center result">
             <div class="col-4">
                 <span id="final-score-label"></span>
                 <span id="score"></span> 
             </div>
         </div>
 
-        <script src="calc.js"></script>
+        <script src="gut.js"></script>
         <script src="lang.js"></script>
     </body>
 </html>
