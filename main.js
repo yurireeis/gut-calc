@@ -6,7 +6,7 @@ const {
 function createWindow () {
   const config = {
     width: 1500,
-    height: 400,
+    height: 420,
     resizable: false,
     darkTheme: true,
     autoHideMenuBar: true,
