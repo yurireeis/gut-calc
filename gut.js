@@ -1,11 +1,8 @@
-let gravity = 0
-let urgency = 0
-let tendency = 0
-let score = 0
+let gravity = 1
+let urgency = 1
+let tendency = 1
+let score = 1
 
-const calcTotal = () => {
-    score = gravity * urgency * tendency
-}
 
 const clearSelected = (className) => {
     var elements = document.getElementsByClassName(className)
@@ -20,23 +17,12 @@ const clearSelected = (className) => {
 
 const addSelected = (element) => element.classList.add('selected')
 
-const gravityChanged = (event) => {
-    const currentElement = event.currentTarget
-    clearSelected('gravity')
-    addSelected(currentElement)
+const getOptionScore = (element) => {
+    const elementScore = element.querySelector('#option-value').innerText
+    return parseInt(elementScore, 10)
 }
 
-const tendencyChanged = (event) => {
-    const currentElement = event.currentTarget
-    clearSelected('tendency')
-    addSelected(currentElement)
-}
-
-const urgencyChanged = (event) => {
-    const currentElement = event.currentTarget
-    clearSelected('urgency')
-    addSelected(currentElement)
-}
+const calcTotal = () => score = gravity * urgency * tendency
 
 const updateScore = () => {
     const scoreElement = document.getElementById('score')
@@ -46,4 +32,31 @@ const updateScore = () => {
 const calc = () => {
     calcTotal()
     updateScore()
+}
+
+const gravityChanged = (event) => {
+    const currentElement = event.currentTarget
+    clearSelected('gravity')
+    addSelected(currentElement)
+    const currentGravityScore = getOptionScore(currentElement)
+    gravity = currentGravityScore
+    calc()
+}
+
+const urgencyChanged = (event) => {
+    const currentElement = event.currentTarget
+    clearSelected('urgency')
+    addSelected(currentElement)
+    const currentUrgencyScore = getOptionScore(currentElement)
+    urgency = currentUrgencyScore
+    calc()
+}
+
+const tendencyChanged = (event) => {
+    const currentElement = event.currentTarget
+    clearSelected('tendency')
+    addSelected(currentElement)
+    const currentTendencyScore = getOptionScore(currentElement)
+    tendency = currentTendencyScore
+    calc()
 }

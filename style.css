@@ -1,5 +1,63 @@
-html, body { width: 100%; }
+html, body {
+    width: 100%;
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+}
+
+.subject { text-transform: uppercase; }
+
+.result { height: 60px; }
+
+.option-container { height: 80; }
 
 .text-uppercase { text-transform: uppercase; }
 
-.selected { border: 1px solid red; }
+.text-center { text-align: center; }
+
+.title-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.selected {
+    background: rgb(38, 2, 95);
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.options {
+    padding: 5px;
+    cursor: pointer;
+
+}
+
+.description-text {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 16px;
+}
+
+.badge {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.underscored {
+    border-bottom: 4px solid;
+    padding-bottom: 4px;
+}
+
+#score { font-size: 30px; }
+
+#option-value {
+    color: white;
+    font-weight: 800;
+    font-size: 22px;
+}
