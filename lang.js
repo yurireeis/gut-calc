@@ -1,6 +1,6 @@
 const dictionary = {
     'pt': {
-        'final-score': 'Resultado final',
+        'final-score': 'GxUxT (total) =',
         'subject': [
             'Gravidade',
             'Urgência',
@@ -29,7 +29,7 @@ const dictionary = {
         ]
     },
     'en': {
-        'final-score': 'Final Result',
+        'final-score': 'GxUxT (total) =',
         'subject': [
             'Gravity',
             'Urgency',

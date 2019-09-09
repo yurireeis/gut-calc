@@ -5,277 +5,254 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>GUT Calculator</title>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-grid.css">
-        <style>
-            html, body { width: 100%; }
-            #option-value { color: white; font-weight: 800; font-size: 14px; }
-            .text-uppercase { text-transform: uppercase; }
-            .text-center { text-align: center; }
-            .selected { outline: 1px solid red; }
-            .options { padding: 5px; margin: 0 5px; cursor: pointer; }
-            .badge {
-                width: 30px;
-                height: 30px;
-                background-color: red;
-                border-radius: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .subject { text-transform: uppercase; }
-            .result { height: 60px; }
-            .option-container { height: 60px; }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
+
     <body onload="setLanguage('pt');updateScore();">
-
-        <div class="row align-items-center option-container">
-            <div class="col-4">
-                <div class="row justify-content-center">
-                    <div style="font-size: 18px; font-weight: 800;">G</div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center">
-                        <span class="subject"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center">
-                    <div style="font-size: 18px; font-weight: 800;">U</div>
-                </div>
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <span class="subject"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center">
-                    <div style="font-size: 18px; font-weight: 800;">T</div>
-                </div>
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <span class="subject"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row align-items-center option-container">
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">5</div>
+        <div class="row justify-content-center align-items center">
+            <div class="col-12">
+                <div class="row align-items-center option-container">
+                    <div class="col-4">
+                        <div class="row justify-content-center">
+                            <div class="col-8 text-center underscored">
+                                <span class="subject title-text"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-4">
+                    <div class="col-4">
+                        <div class="row justify-content-center">
+                            <div class="col-8 text-center underscored">
+                                <span class="subject title-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row justify-content-center">
+                            <div class="col-8 text-center underscored">
+                                <span class="subject title-text"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">5</div>
+        
+                <div class="row align-items-center option-container">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #800000;">
+                                    <div id="option-value">5</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-4 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-4">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #800000;">
+                                    <div id="option-value">5</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-4 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">5</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-4">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row align-items-center option-container">
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">4</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-3">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">4</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-3">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #800000;">
+                                    <div id="option-value">5</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-4 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">4</div>
+        
+                <div class="row align-items-center option-container">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #ce2200;">
+                                    <div id="option-value">4</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-3 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-3">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #ce2200;">
+                                    <div id="option-value">4</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-3 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row align-items-center option-container">
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">3</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-2">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">3</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-2">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">3</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-2">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #ce2200;">
+                                    <div id="option-value">4</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-3 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row align-items-center option-container">
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">2</div>
+        
+                <div class="row align-items-center option-container">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #ffde00;">
+                                    <div id="option-value">3</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-2 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-1">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #ffde00;">
+                                    <div id="option-value">3</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-2 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">2</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-1">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">2</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-1">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row align-items-center option-container">
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options gravity selected" onclick="gravityChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">1</div>
-                        </div>
-                    </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-0">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #ffde00;">
+                                    <div id="option-value">3</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-2 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options urgency selected" onclick="urgencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">1</div>
+        
+                <div class="row align-items-center option-container">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options gravity" onclick="gravityChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #00f3ff;">
+                                    <div id="option-value">2</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-1 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-0">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options urgency" onclick="urgencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #00f3ff;">
+                                    <div id="option-value">2</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-1 description-text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options tendency" onclick="tendencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #00f3ff;">
+                                    <div id="option-value">2</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-1 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="row justify-content-center align-items-center options tendency selected" onclick="tendencyChanged(event);">
-                    <div class="col-3" style="display: flex; justify-content: center">
-                        <div class="badge">
-                            <div id="option-value">1</div>
+        
+                <div class="row align-items-center option-container">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options gravity selected" onclick="gravityChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #00ff79;">
+                                    <div id="option-value">1</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-0 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-9" style="font-size: 12px; display: flex; align-items: center">
-                        <div class="description-0">
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options urgency selected" onclick="urgencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #00ff79;">
+                                    <div id="option-value">1</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-0 description-text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row justify-content-center align-items-center options tendency selected" onclick="tendencyChanged(event);">
+                            <div class="col-2" style="display: flex; justify-content: center">
+                                <div class="badge" style="background-color: #00ff79;">
+                                    <div id="option-value">1</div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="font-size: 12px; display: flex; align-items: center">
+                                <div class="description-0 description-text">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row align-items-center justify-content-center result">
-            <div class="col-4">
-                <span id="final-score-label"></span>
-                <span id="score"></span> 
+                <div class="row align-items-center justify-content-center result">
+                    <div class="col-4 title-text text-center">
+                        <span id="final-score-label"></span>
+                        <span id="score"></span> 
+                    </div>
+                </div>
             </div>
         </div>
 
