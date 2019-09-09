@@ -7,11 +7,17 @@
     "bootstrap": "^4.3.1"
   },
   "devDependencies": {
-    "electron": "^6.0.7"
+    "electron": "^6.0.7",
+    "electron-packager": "^14.0.6",
+    "electron-winstaller": "^4.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron . --no-sandbox"
+    "start": "electron . --no-sandbox",
+    "package-linux": "electron-packager . --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/gut-icon.ico --prune=true --out=release-builds",
+    "package-windows": "electron-packager . --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/gut-icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"GUT Calculator\"",
+    "create-debian-installer": "electron-installer-debian --src release-builds/gut-calc-linux-x64/ --arch amd64 --config debian.json",
+    "create-win-installer": "node win-install.js"
   },
   "keywords": [
     "gut",
