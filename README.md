@@ -4,7 +4,7 @@ This is a simple GUT matrix calculator created with HTML, CSS and Javascript (ES
 
 ### Objective
 
-As shown, the GUT matrix consists of three elements: **Gravity**, **Urgency** and **Tendency**. If you want to know more about the tecnique click [here](https://getbootstrap.com/).
+As shown, the GUT matrix consists of three elements: **Gravity**, **Urgency** and **Tendency**. If you want to know more about the tecnique click [here](https://blog.hotmart.com/en/gut-matrix/).
 
 ### Built With
 
