@@ -1,5 +1,7 @@
 # GUT Calculator
 
+![GUT-CALC-APP](https://i.ibb.co/wz2P4mv/gut-screenshot.png)
+
 This is a simple GUT matrix calculator created with HTML, CSS and Javascript (ES6). Feel free to use at you purpose.
 
 ### Objective
@@ -26,7 +28,7 @@ You can use embedded at your HTML, or you can create binaries to use at your des
 
 #### Development
 
-0) run ```npm install``` 
+0) run ```npm install```
 
 1) run ```npm start``` (to view desktop application appearance)
 
