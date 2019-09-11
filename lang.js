@@ -36,25 +36,25 @@ const dictionary = {
             'Tendency'
         ],
         'gravity': [
-            'Sem Gravidade',
-            'Pouco Grave',
+            'No Gravity',
+            'Low Gravity',
             'Grave',
-            'Muito Grave',
-            'Extremamente Grave',
+            'High Gravity',
+            'Extremelly Grave',
         ],
         'urgency': [
-            'Fica tranquilo, pode esperar',
-            'pouco urgente, o prazo ainda é longo',
-            'O mais rápido possível',
-            'É Urgente',
-            'Precisa de Ação Imediata'
+            'Can Wait',
+            'A bit urgent, but the term is long',
+            'As soon as possible',
+            'Is urgent',
+            'Needs imediatelly action'
         ],
         'tendency': [
-            'A situação não tem tendência a piorar',
-            'Irá piorar a longo prazo',
-            'Irá piorar',
-            'Irá piorar em pouco tempo se nada for feito',
-            'Irá piorar rapidamente se nada for feito'
+            'The situation Won\'t get worse',
+            'Will be worse in a long term',
+            'Will be worse',
+            'Will be worse if nothing is done',
+            'Will be worse fast if nothing is done'
         ]
     }
 }
